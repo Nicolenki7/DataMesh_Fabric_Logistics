@@ -1,0 +1,17 @@
+# 📘 Diccionario de Datos: Dominio Logística (sc_logistica)
+
+Este documento describe la estructura y el significado de los datos del dominio logístico, obtenidos desde la base de datos KQL (D2) y expuestos a través de OneLake Shortcut.
+
+## Propósito
+Medir la eficiencia operativa y el cumplimiento del servicio de entrega de la compañía.
+
+## Métricas y Atributos Clave
+
+| Columna | Tipo de Dato | Reglas de Negocio | Rol Analítico en Dashboard |
+| :--- | :--- | :--- | :--- |
+| **DeliveryID** | string | Clave de unión con el dominio Transacciones (D1). | Clave de Unión (Primary/Foreign Key) |
+| **ShipDate** | datetime | Fecha y hora exactas del envío. | Eje X principal (Análisis de tendencia temporal) |
+| **Carrier** | string | Operador Logístico (DHL, FedEx, UPS, LocalPost). | Segmentador clave para auditoría de rendimiento. |
+| **DeliveryTimeInDays** | decimal | (Entrega - Envío) / 24. El valor promedio debe auditarse contra el SLA (7 días). | Métrica de Rendimiento (Eje Y) |
+| **Region** | string | Zona geográfica de destino. | Usado en visualizaciones de Mapas. |
+| **CurrentStatus** | string | Estado actual del paquete. | Indicador operativo. |
