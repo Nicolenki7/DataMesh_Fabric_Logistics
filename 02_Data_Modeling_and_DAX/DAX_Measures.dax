@@ -1,0 +1,39 @@
+-- =========================================================
+-- MEDIDAS DAX: Data Modeling e Inteligencia de Negocio
+-- Proyecto: Data Mesh Logística (D1, D2, D3)
+-- =========================================================
+
+-- 1. EFICIENCIA OPERATIVA (Dominio Logística - D2)
+
+[Total Envíos] = 
+    COUNTROWS('sc_logistica') 
+    
+-- Métrica principal para el Eje Y del gráfico de tendencia y el KPI.
+[Tiempo Promedio de Entrega (días)] = 
+    AVERAGE('sc_logistica'[DeliveryTimeInDays])
+
+-- 2. GOBERNANZA Y CALIDAD (Dominio Gobernanza - D3)
+
+-- Cuenta el número de incidentes donde se violó el SLA.
+[Total Incumplimiento SLA] =
+    CALCULATE(
+        COUNTROWS('sc_logs_plataforma'),
+        'sc_logs_plataforma'[LatencySLA_Status] = "Violado"
+    )
+
+-- Tasa crítica para el KPI y el gráfico de auditoría.
+-- Mide el porcentaje de todas las transacciones que experimentaron una violación del SLA.
+[Tasa Incumplimiento SLA %] =
+    DIVIDE(
+        [Total Incumplimiento SLA],
+        COUNTROWS('sc_transacciones'), -- Asume que el total de transacciones es la base
+        0
+    )
+
+-- 3. INTEGRACIÓN DE NEGOCIO (Dominio Transacciones - D1)
+
+-- Métrica para el KPI de negocio. Asume que la columna 'SalesAmount' viene del dominio D1.
+[Ventas Totales] = 
+    SUM('sc_transacciones'[SalesAmount])
+
+-- =========================================================
