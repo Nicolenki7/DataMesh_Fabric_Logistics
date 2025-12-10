@@ -60,10 +60,9 @@ El **Segmentador de Operador Logístico** permite a los usuarios filtrar todo el
 
 ## 🖼️ Resultado Final del Dashboard
 
-Puedes ver la interfaz y el diseño final del dashboard en la siguiente imagen:
+El diseño del dashboard muestra la integración de los datos de Logística, Gobernanza y Transacciones en un solo panel interactivo.
 
-
-**Enlace a la imagen en este repositorio:** https://github.com/Nicolenki7/DataMesh_Fabric_Logistics/blob/9553fe4f96897b9ea14ff138f717606fec1f1f4f2e/dashboard%20datamesh_foto.png
+![Diseño Final del Dashboard de Data Mesh](https://github.com/Nicolenki7/DataMesh_Fabric_Logistics/blob/9553fe4f96897b9ea14ff138f717606fec1f4f2e/dashboard%20datamesh_foto.png)
 
 ## 🔗 Demo Interactiva
 
