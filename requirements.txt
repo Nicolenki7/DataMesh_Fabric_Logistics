@@ -1,0 +1,5 @@
+# DataMesh_Fabric_Logistics - runtime dependencies
+# Los notebooks de Fabric ya traen PySpark; esto permite reproducirlo fuera de Fabric.
+pyspark>=3.4
+pandas>=2.0
+numpy>=1.24
